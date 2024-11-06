@@ -1,1 +1,1 @@
-# ContinuousIntegrationWarsztat
+# workshops
