@@ -46,13 +46,9 @@ describe("Api tests", () =>{
 
     })
 
-    //it("Check token", async () => {
-    //    console.log("another block", token_response)
-    //})
-
     it("Add book", async () => {
         const response = await spec()
-        .post(`${baseUrl}Bookstore/v1/Books`)
+        .post(`${baseUrl}BookStore/v1/Books`)
         .withBearerToken(token_response)
         .withBody({
             userId: userID,
@@ -66,7 +62,7 @@ describe("Api tests", () =>{
         expect(response.statusCode).to.eql(201)
     })
 
-    it("Check book for user", async () => {
+    it("Check book for user1", async () => {
         const response = await spec()
         .get(`${baseUrl}Account/v1/User/${userID}`)
         .inspect()
@@ -74,9 +70,9 @@ describe("Api tests", () =>{
         expect(response.statusCode).to.eql(200)
     })
 
-    it("Delete all books for user", async() => {
+    it("Delete all books for user", async () => {
         const response = await spec()
-        .delete(`${baseUrl}BookStore/v1/Books/${userID}`)
+        .delete(`${baseUrl}BookStore/v1/Books?UserId=${userID}`)
         .inspect()
         .withBearerToken(token_response)
         expect(response.statusCode).to.eql(204)
