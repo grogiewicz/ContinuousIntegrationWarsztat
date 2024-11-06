@@ -50,7 +50,7 @@ describe("Api tests", () =>{
     //    console.log("another block", token_response)
     //})
 
-    it.skip("Add book", async () => {
+    it("Add book", async () => {
         const response = await spec()
         .post(`${baseUrl}Bookstore/v1/Books`)
         .withBearerToken(token_response)
